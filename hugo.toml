@@ -1,0 +1,44 @@
+# 站点基础配置。改标题/简介只需要动这个文件。
+baseURL = "https://wanghr64.github.io/blog/"
+locale = "zh-CN"
+defaultContentLanguage = "zh-cn"
+title = "皓冉的博客"
+enableRobotsTXT = true
+enableGitInfo = false
+
+# 只保留 tags 一个分类法，别的都不要。
+[taxonomies]
+  tag = "tags"
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  description = "一个只用 Hugo 自带功能的小博客。"
+  author = "皓冉"
+  # 首页最多列几篇
+  homePostLimit = 10
+
+[markup]
+  [markup.goldmark.renderer]
+    # 允许在正文里直接写 HTML
+    unsafe = true
+  [markup.highlight]
+    # 用 class 而不是内联样式，这样深色模式下代码块颜色才跟着变
+    noClasses = false
+
+# 顶部导航。增删一项就是加/删一个 [[menus.main]]。
+[[menus.main]]
+  name = "文章"
+  pageRef = "/posts"
+  weight = 10
+
+[[menus.main]]
+  name = "标签"
+  pageRef = "/tags"
+  weight = 20
+
+[[menus.main]]
+  name = "关于"
+  pageRef = "/about"
+  weight = 30

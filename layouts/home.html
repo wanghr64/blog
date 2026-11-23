@@ -1,0 +1,11 @@
+{{ define "main" }}
+  {{ with .Content }}<div class="post-body intro">{{ . }}</div>{{ end }}
+
+  <h1 class="page-heading">最近文章</h1>
+  {{ $limit := site.Params.homePostLimit | default 10 }}
+  {{ $posts := (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+  {{ partial "post-list.html" (first $limit $posts) }}
+  {{ if gt (len $posts) $limit }}
+  <p class="more"><a href="{{ "posts/" | relURL }}">全部文章 →</a></p>
+  {{ end }}
+{{ end }}

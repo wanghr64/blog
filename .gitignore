@@ -1,0 +1,10 @@
+# 构建产物，不要提交
+public/
+resources/_gen/
+
+# Hugo 本地锁文件
+.hugo_build.lock
+
+# 系统垃圾
+.DS_Store
+Thumbs.db

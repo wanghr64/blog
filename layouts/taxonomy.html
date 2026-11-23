@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <h1 class="page-heading">{{ .Title }}</h1>
+  {{ with .Content }}<div class="post-body intro">{{ . }}</div>{{ end }}
+
+  {{ if .Data.Terms }}
+  <div class="tag-cloud">
+    {{ range .Data.Terms.ByCount }}
+    <a class="tag" href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }} <span class="n">{{ .Count }}</span></a>
+    {{ end }}
+  </div>
+  {{ else }}
+  <p class="empty">还没有标签。</p>
+  {{ end }}
+{{ end }}

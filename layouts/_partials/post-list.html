@@ -1,0 +1,15 @@
+{{ if . }}
+<ul class="entries">
+  {{ range . }}
+  <li>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+    <div>
+      <a class="entry-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{ with .Params.summary | default .Description }}<p class="entry-sum">{{ . }}</p>{{ end }}
+    </div>
+  </li>
+  {{ end }}
+</ul>
+{{ else }}
+<p class="empty">还没有文章。</p>
+{{ end }}

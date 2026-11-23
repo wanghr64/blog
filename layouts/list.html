@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <h1 class="page-heading">{{ .Title }}{{ with .Pages }} <span class="count">{{ len . }} 篇</span>{{ end }}</h1>
+  {{ with .Content }}<div class="post-body intro">{{ . }}</div>{{ end }}
+
+  {{ $pag := .Paginate .Pages }}
+  {{ partial "post-list.html" $pag.Pages }}
+
+  {{ if gt $pag.TotalPages 1 }}
+  <nav class="pager" aria-label="翻页">
+    {{ with $pag.Prev }}<a href="{{ .URL }}">← 较新</a>{{ end }}
+    <span class="pager-info">{{ $pag.PageNumber }} / {{ $pag.TotalPages }}</span>
+    {{ with $pag.Next }}<a href="{{ .URL }}">较早 →</a>{{ end }}
+  </nav>
+  {{ end }}
+{{ end }}
