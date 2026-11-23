@@ -1,14 +1,19 @@
 # 博客
 
+线上地址：<https://wanghr64.github.io/blog/>
+
 Hugo + GitHub Pages。零 JavaScript、无搜索、无第三方依赖的极简主题。
 
 ## 本地预览
 
 ```sh
-hugo server -D
+hugo server -D --baseURL http://localhost:1313/
 ```
 
 打开 <http://localhost:1313>。
+
+（`hugo.toml` 里的 baseURL 是线上子路径 `/blog/`，不加 `--baseURL` 的话本地会变成
+<http://localhost:1313/blog/>，也能用，只是多一层路径。）
 
 ## 写文章
 
