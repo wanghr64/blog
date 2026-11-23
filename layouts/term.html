@@ -1,6 +1,6 @@
 {{ define "main" }}
   <h1 class="page-heading">{{ .Title }} <span class="count">{{ len .Pages }} 篇</span></h1>
-  {{ with .Content }}<div class="post-body intro">{{ . }}</div>{{ end }}
+  {{ with .Content }}<div class="intro">{{ . }}</div>{{ end }}
 
   {{ $pag := .Paginate .Pages }}
   {{ partial "post-list.html" $pag.Pages }}

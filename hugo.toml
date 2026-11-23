@@ -11,13 +11,13 @@ enableGitInfo = false
   tag = "tags"
 
 [pagination]
-  pagerSize = 10
+  pagerSize = 12
 
 [params]
   description = "一个只用 Hugo 自带功能的小博客。"
   author = "皓冉"
   # 首页最多列几篇
-  homePostLimit = 10
+  homePostLimit = 12
 
 [markup]
   [markup.goldmark.renderer]

@@ -2,7 +2,8 @@
 
 线上地址：<https://wanghr64.github.io/blog/>
 
-Hugo + GitHub Pages。零 JavaScript、无搜索、无第三方依赖的极简主题。
+Hugo + GitHub Pages。零 JavaScript、无搜索、无第三方依赖的极简主题：
+卡片网格列表、文章页右栏（目录 + 最新文章）、标签分类、深色模式。
 
 ## 本地预览
 
