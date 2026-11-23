@@ -21,23 +21,29 @@
   </article>
 
   <aside class="rail">
-    {{ if .TableOfContents }}
+    {{ if .Fragments.Headings }}
     <section class="card rail-card">
       <h2 class="rail-title">目录</h2>
       <div class="toc">{{ .TableOfContents }}</div>
     </section>
     {{ end }}
 
+    {{ $self := . }}
+    {{ $others := slice }}
+    {{ range where site.RegularPages "Section" "posts" }}
+      {{ if ne .RelPermalink $self.RelPermalink }}{{ $others = $others | append . }}{{ end }}
+    {{ end }}
+    {{ $latest := first 6 (sort $others "Date" "desc") }}
+    {{ with $latest }}
     <section class="card rail-card">
       <h2 class="rail-title">最新文章</h2>
       <ul class="rail-list">
-        {{ range first 6 (where site.RegularPages "Section" "posts").ByDate.Reverse }}
-        {{ if ne .RelPermalink $.RelPermalink }}
+        {{ range . }}
         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01-02" }}</time></li>
-        {{ end }}
         {{ end }}
       </ul>
     </section>
+    {{ end }}
   </aside>
 </div>
 
